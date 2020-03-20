@@ -1,2 +1,3 @@
-# FPGA_Development
-A set of tools, documentation and examples for development and programming of systems in FPGA's
+# Docs about differents topics
+
+This repo has been created to merge different repositories where I saved information
