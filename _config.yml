@@ -21,6 +21,7 @@
   
 title: michaelgy repository
 description: Useful information sometimes with code
+github.repository_url: https://github.com/michaelgy/michaelgy.github.io
 theme: jekyll-theme-slate
 plugins:
   - jekyll-relative-links
