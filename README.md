@@ -10,7 +10,7 @@ In order to test on a local machine, you must follow:
 
 ### Using Jekyll
 + Each markdown file must have a front matter at the beginning of the file(the code inside is in YAML):
-```
+```yaml
     ---
     title: ejemplo
     ---
