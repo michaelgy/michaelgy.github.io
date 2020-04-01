@@ -108,4 +108,56 @@ por defecto es `0`.
 
 ### Elementos de control
 
-+ Condicionales
++ Condicionales:
+{% raw %}
+```VBA
+Dim randomn As Double
+random = WorksheetFunction.RandBetween(0, 10)
+Dim count As Integer: count = CInt(random)
+Dim message As String
+
+If count = 0 Then
+    message = "No hay elementos"
+ElseIf count = 1 Then
+    message = "Hay 1 un elemento"
+Else
+    message = "Hay " & CStr(count) & " Elementos"
+End If
+MsgBox message
+```
+{% endraw %}
++ Ciclo for:
+{% raw %}
+```VBA
+Dim randomn As Double
+random = WorksheetFunction.RandBetween(0, 10)
+Dim count As Integer: count = 0
+
+Dim message As String
+For numbs = random To 1 Step -2
+    count = count + numbs
+Next
+MsgBox "random = " & CStr(random) & " count = " & CStr(count)
+```
+{% endraw %}
+
+{% raw %}
+```VBA
+Dim total As Integer
+total = 0
+For Each c In Hoja1.Range("A1:D10")
+    c.Value = total
+    total = total + 1
+Next c
+```
+{% endraw %}
+
+{% raw %}
+```VBA
+Dim myValue As Variant
+myValue = InputBox("numero < 3", "Titulo", 2)
+For x = 1 To myValue Step 1
+    MsgBox cStr(x)
+Next 
+```
+{% endraw %}
