@@ -67,6 +67,7 @@ Para más información sobre la sentencia `Dim` consulte [[7]](https://docs.micr
 Los arreglos son conjuntos de elementos de un mismo tipo, se pueden declarar
 de muchas formas por ejemplo [[8]](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/arrays/):
 
+{% raw %}
 ```VBA
 ' Declare a single-dimension array of 5 numbers.
 Dim numbers(4) As Integer
@@ -89,6 +90,7 @@ Dim matrix = New Integer(3, 2) {{1, 2, 3}, {2, 3, 4}, {3, 4, 5}, {4, 5, 6}}
 ' Declare a jagged array
 Dim sales()() As Double = New Double(11)() {}
 ```
+{% endraw %}
 Para asignar valores a un arreglo puede hacerlo al momento de declarar la variable como en el ejemplo anterior o posteriormente utilizando el operador
 de asignación `=` :
 
