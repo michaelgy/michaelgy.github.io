@@ -38,77 +38,95 @@ Dim x As Integer
 ```
 ## Variables
 Las variables son espacios en memoria donde se almacenan los datos.
-En *VB* la forma más simple de declarar es `Dim indentificador As Tipo` [[3]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-variables), donde *identificador* es una cadena de caracteres que debe cumplir lo siguiente[[4]](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/declared-elements/declared-element-names):
-+ Debe comenzar con un caracter alfa numerico o con guion bajo `_`.
-+ Debe contener unicamente caracteres alfa numericos o con guiones bajos `_`.
-+ Debe contener al menos un caracter alfa numerico si comienza con guion bajo `_`.
-+ la longitud no debe ser mayor a 1023 caracteres.
+En *VB* la forma más simple de declarar es `Dim indentificador As Tipo` [[3]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-variables), donde *identificador* es una cadena de caracteres que debe cumplir con las [reglas de nombramiento de VBA](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/visual-basic-naming-rules)
 
 *Tipo* es algún tipo de dato reconocible por *VB*, como `Integer`, `String`, `Decimal`, `Double`, etc. Por ejemplo:
 ```VBA
 Dim entero As Integer
 Dim cadena As String
-Dim cadena_init As String = "valor inicial"
-Dim numero As Decimal = 123456
-Dim real As Double = 7.89
 Dim n1 As Integer, x As Double, nm As String
 ```
-Para asignar valores a una variable puede hacerlo al momento de declarar la variable como en el ejemplo anterior o posteriormente utilizando el operador
-de asignación `=` [[6]](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/operators/assignment-operator):
+Para asignar valores a una variable puede hacerlo posteriormente utilizando el la sentencia de asignación `=` [[6]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/writing-assignment-statements):
 
 ```VBA
 Dim n As Integer
 n = 10
 ```
 
-Para más información sobre la sentencia `Dim` consulte [[7]](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/dim-statement).
+Para más información sobre la declaración de variables consulte [[7]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-variables).
 
 ## Arreglos (Arrays)
 Los arreglos son conjuntos de elementos de un mismo tipo, se pueden declarar
-de muchas formas por ejemplo [[8]](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/arrays/):
+de muchas formas([[8]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-arrays),[[9]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-arrays)), por ejemplo:
 
 {% raw %}
 ```VBA
-' Declare a single-dimension array of 5 numbers.
-Dim numbers(4) As Integer
+' Declarar un arreglo de 3 enteros
+Dim numbers1(2) As Integer
+numbers1(0) = 1
+numbers1(1) = 10
+numbers1(2) = 100
 
-' Declare a single-dimension array and set its 4 values.
-Dim numbers = New Integer() {1, 2, 4, 8}
+' Declarar un arreglo Variant (sin tipo definido) y tamaño dinamico
+Dim numbers2()
 
-' Change the size of an existing array to 16 elements and retain the current values.
-ReDim Preserve numbers(15)
+' Definir el tamaño de un arreglo previamente definido y preservar los datos
+' Solo funciona cuando el arreglo no tenía un tamaño definido
+ReDim Preserve numbers2(15)
+numbers2(10) = 100
 
-' Redefine the size of an existing array and reset the values.
-ReDim numbers(15)
+' Cambiar el tamaño de un arreglo previamente definido y elimina los datos
+ReDim numbers2(8)
+
+' Declara un arreglo con posiciones validas dt(2) y dt(3)
+Dim dt(2 To 3) As Long
+' numbers3(0) = 10 es un error
+' numbers3(1) = 1 es un error
 
 ' Declare a 6 x 6 multidimensional array.
-Dim matrix(5, 5) As Double
-
-' Declare a 4 x 3 multidimensional array and set array element values.
-Dim matrix = New Integer(3, 2) {{1, 2, 3}, {2, 3, 4}, {3, 4, 5}, {4, 5, 6}}
-
-' Declare a jagged array
-Dim sales()() As Double = New Double(11)() {}
+Dim matrix(5, 5) As String
+matrix(1, 1) = "pro"
+matrix(3, 4) = "bando"
 ```
 {% endraw %}
-Para asignar valores a un arreglo puede hacerlo al momento de declarar la variable como en el ejemplo anterior o posteriormente utilizando el operador
-de asignación `=` :
 
-```VBA
-' Declare a single-dimension array of 4 numbers.
-Dim numeros(3) As Integer
-numeros(0) = 1
-numeros(1) = 2
-numeros(3) = 4
-```
 Note del ejemplo anterior que no es necesario definir un valor para todos
 los elementos del arreglo, todos los arreglos tienen valores por defecto
 que dependen del tipo de datos del arreglo, en el caso de `Integer` el valor
 por defecto es `0`.
 
+## Operadores
+
+los operadores deben utilizarse solamente en sentencias (declaración de variables, condicionales, ciclos, ...)
+
+{% raw %}
+```VBA
+'Escribir lo siguiente en un script es un error
+4 + 4
+'Dado que la operación no esta dentro de una sentencia.
+```
+{% endraw %}
+
+### Operadores  aritmeticos
+Los operadores aritmeticos en **VBA** son suma(`a+b`), resta(`a-b`), multiplicación(`a*b`), division(`a\b`), division entera(`a/b`), modulo(`a Mod b`). Estos operadores deben utilizarse en cuyos operandos (`a` y `b`) sean expresiones que al evaluarlas den como resultado un valor numerico [[10]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/operator-summary), por ejemplo:
+
+{% raw %}
+```VBA
+Dim i As Integer
+i = 4 + 4
+
+Dim x(8-2) As Integer
+```
+{% endraw %}
+
+### Operadores de comparación
+Los operadores de comparación en **VBA** son menor que (`a<b`), menor o igual  que (`a<=b`), mayor que (`a>b`), mayor o igual que (`a>=b`), igual que (`a=b`), diferente (`a<>b`), si `a` y `b` son expresiones númericos o strings 
+
 ## Elementos de control
 
 ### Condicionales
+Los condicionales se utilizan principalmente cuando la ejecución de ciertas sentencias dependen de cierta condición que se debe cumplir, por ejemplo:
+
 {% raw %}
 ```VBA
 Dim randomn As Double
