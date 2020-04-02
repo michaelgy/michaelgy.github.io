@@ -43,7 +43,7 @@ En *VB* la forma más simple de declarar es `Dim indentificador As Tipo` [[3]](h
 *Tipo* es algún tipo de dato reconocible por *VB*, como `Integer`, `String`, `Decimal`, `Double`, etc. Por ejemplo:
 ```VBA
 Dim entero As Integer
-Dim cadena As String
+Dim cadena1, cadena2 As String
 Dim n1 As Integer, x As Double, nm As String
 ```
 Para asignar valores a una variable puede hacerlo posteriormente utilizando el la sentencia de asignación `=` [[6]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/writing-assignment-statements):
@@ -120,7 +120,8 @@ Dim x(8-2) As Integer
 {% endraw %}
 
 ### Operadores de comparación
-Los operadores de comparación en **VBA** son menor que (`a<b`), menor o igual  que (`a<=b`), mayor que (`a>b`), mayor o igual que (`a>=b`), igual que (`a=b`), diferente (`a<>b`), si `a` y `b` son expresiones númericos o strings 
+Los operadores de comparación en **VBA** son menor que (`a<b`), menor o igual  que (`a<=b`), mayor que (`a>b`), mayor o igual que (`a>=b`), igual que (`a=b`), diferente (`a<>b`), si `a` y `b` son expresiones númericos o strings la operación es la usual (comparación de numeros o comparación lexicografica, respectivamente), para más información consulte [[11]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/comparison-operators). Ademas de los anteriores operadores de comparación, **VBA** cuenta con los operadores:
++ **Is** 
 
 ## Elementos de control
 
