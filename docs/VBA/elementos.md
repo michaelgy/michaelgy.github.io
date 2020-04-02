@@ -1,5 +1,5 @@
 # Elementos Básicos
-### Comentarios
+## Comentarios
 Los comentarios son lineas de texto y se utilizan generalmente para colocar notas o documentar el codigo de forma que no afecte la ejecución del programa,
 toda linea que comience con `'` o con `REM` es un comentario [[1]](https://docs.microsoft.com/en-us/office/vba/language/glossary/vbe-glossary#comment), por ejemplo:
 ```VBA
@@ -9,7 +9,7 @@ toda linea que comience con `'` o con `REM` es un comentario [[1]](https://docs.
 REM otra forma de escribir un comentario
 ```
 
-### Sentencias (Statements)
+## Sentencias (Statements)
 Una sentencia en Visual Basic(*VB*) es una unidad completa sintacticamente que expresa una acción,
 declaración o definición [[2]](https://docs.microsoft.com/en-us/office/vba/language/glossary/vbe-glossary#statement). Las siguientes lineas de codigo
 son ejemplos de una sentencia:
@@ -36,7 +36,7 @@ As Integer
 ' Es lo mismo que
 Dim x As Integer
 ```
-### Variables
+## Variables
 Las variables son espacios en memoria donde se almacenan los datos.
 En *VB* la forma más simple de declarar es `Dim indentificador As Tipo` [[3]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-variables), donde *identificador* es una cadena de caracteres que debe cumplir lo siguiente[[4]](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/declared-elements/declared-element-names):
 + Debe comenzar con un caracter alfa numerico o con guion bajo `_`.
@@ -63,7 +63,7 @@ n = 10
 
 Para más información sobre la sentencia `Dim` consulte [[7]](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/dim-statement).
 
-### Arreglos (Arrays)
+## Arreglos (Arrays)
 Los arreglos son conjuntos de elementos de un mismo tipo, se pueden declarar
 de muchas formas por ejemplo [[8]](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/arrays/):
 
@@ -106,9 +106,9 @@ los elementos del arreglo, todos los arreglos tienen valores por defecto
 que dependen del tipo de datos del arreglo, en el caso de `Integer` el valor
 por defecto es `0`.
 
-### Elementos de control
+## Elementos de control
 
-+ Condicionales:
+### Condicionales
 {% raw %}
 ```VBA
 Dim randomn As Double
@@ -126,7 +126,8 @@ End If
 MsgBox message
 ```
 {% endraw %}
-+ Ciclo for:
+
+### Ciclo for
 {% raw %}
 ```VBA
 Dim randomn As Double
@@ -141,23 +142,16 @@ MsgBox "random = " & CStr(random) & " count = " & CStr(count)
 ```
 {% endraw %}
 
-{% raw %}
-```VBA
-Dim total As Integer
-total = 0
-For Each c In Hoja1.Range("A1:D10")
-    c.Value = total
-    total = total + 1
-Next c
-```
-{% endraw %}
+Una alternativa para el ciclo `For ... To ... Next` del ejemplo anterior es el
+ciclo `For Each ... In ... Next`, como lo muestra el siguiente ejemplo
 
 {% raw %}
 ```VBA
-Dim myValue As Variant
-myValue = InputBox("numero < 3", "Titulo", 2)
-For x = 1 To myValue Step 1
-    MsgBox cStr(x)
-Next 
+Dim total As Integer
+total = CInt(InputBox("numero < 3", "Titulo", 2))
+For Each c In Range("A1:D10")
+    c.Value = total
+    total = total + 1
+Next c
 ```
 {% endraw %}
