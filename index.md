@@ -1,7 +1,7 @@
 ---
 layout: init_page
-title: hello world
-description: una desc
+title: michaelgy doc repository
+description: useful information about different topics
 ---
 # Docs about differents topics
 
