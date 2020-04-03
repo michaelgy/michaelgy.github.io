@@ -38,15 +38,13 @@ Dim x As Integer
 ```
 ## Variables
 Las variables son espacios en memoria donde se almacenan los datos.
-En *VB* la forma más simple de declarar es `Dim indentificador As Tipo` [[3]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-variables), donde *identificador* es una cadena de caracteres que debe cumplir con las [reglas de nombramiento de VBA](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/visual-basic-naming-rules)
-
-*Tipo* es algún tipo de dato reconocible por *VB*, como `Integer`, `String`, `Decimal`, `Double`, etc. Por ejemplo:
+En *VB* la forma más simple de declarar es `Dim indentificador As Tipo` [[3]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-variables), donde *identificador* es una cadena de caracteres que debe cumplir con las [reglas de nombramiento de VBA](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/visual-basic-naming-rules), *Tipo* es algún tipo de dato reconocible por *VB*, como `Integer`, `String`, `Decimal`, `Double`, etc. Por ejemplo:
 ```VBA
 Dim entero As Integer
 Dim cadena1, cadena2 As String
 Dim n1 As Integer, x As Double, nm As String
 ```
-Para asignar valores a una variable puede hacerlo posteriormente utilizando el la sentencia de asignación `=` [[6]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/writing-assignment-statements):
+Puede asignar un valor a la variable posteriormente utilizando la sentencia de asignación `=` [[6]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/writing-assignment-statements):
 
 ```VBA
 Dim n As Integer
@@ -57,7 +55,7 @@ Para más información sobre la declaración de variables consulte [[7]](https:/
 
 ## Arreglos (Arrays)
 Los arreglos son conjuntos de elementos de un mismo tipo, se pueden declarar
-de muchas formas([[8]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-arrays),[[9]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-arrays)), por ejemplo:
+de muchas formas([[8]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/declaring-arrays),[[9]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/using-arrays)), por ejemplo:
 
 {% raw %}
 ```VBA
@@ -108,7 +106,7 @@ los operadores deben utilizarse solamente en sentencias (declaración de variabl
 {% endraw %}
 
 ### Operadores  aritmeticos
-Los operadores aritmeticos en **VBA** son suma(`a+b`), resta(`a-b`), multiplicación(`a*b`), division(`a\b`), division entera(`a/b`), modulo(`a Mod b`). Estos operadores deben utilizarse en cuyos operandos (`a` y `b`) sean expresiones que al evaluarlas den como resultado un valor numerico [[10]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/operator-summary), por ejemplo:
+Los operadores aritmeticos en **VBA** son suma(`a+b`), resta(`a-b`), negación(`-a`), multiplicación(`a*b`), division(`a/b`), division entera(`a\b`) y modulo(`a Mod b`), los operandos (`a` y `b`) deben ser expresiones que al evaluarlas den como resultado un valor numerico [[10]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/operator-summary), por ejemplo:
 
 {% raw %}
 ```VBA
@@ -120,13 +118,170 @@ Dim x(8-2) As Integer
 {% endraw %}
 
 ### Operadores de comparación
-Los operadores de comparación en **VBA** son menor que (`a<b`), menor o igual  que (`a<=b`), mayor que (`a>b`), mayor o igual que (`a>=b`), igual que (`a=b`), diferente (`a<>b`), si `a` y `b` son expresiones númericos o strings la operación es la usual (comparación de numeros o comparación lexicografica, respectivamente), para más información consulte [[11]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/comparison-operators). Ademas de los anteriores operadores de comparación, **VBA** cuenta con los operadores:
-+ **Is** 
+Los operadores de comparación en **VBA** son menor que (`a<b`), menor o igual  que (`a<=b`), mayor que (`a>b`), mayor o igual que (`a>=b`), igual que (`a=b`), diferente (`a<>b`), donde `a` y `b` son expresiones numericas o strings, la función que realiza cada operador es la usual (comparación de numeros o comparación lexicografica, respectivamente), para más información consulte [[11]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/comparison-operators). Ademas de los anteriores operadores de comparación, **VBA** cuenta con los operadores:
++ **Is**  es utilizado para comparar si dos objetos se refieren al mismo objeto [[12]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/is-operator), por ejemplo:
+
+{% raw %}
+```VBA
+Dim c, x As Range
+Set c = Range("A1")
+Set x = Range("B1")
+MsgBox c Is x 'False
+Set x = Range("A1")
+MsgBox c Is x 'False
+Set x = c
+MsgBox c Is x 'True
+```
+{% endraw %}
+
++ **Like** es utilizado para comparar dos cadenas, en particular la sintaxis es la siguiente `strx Like pattern`, donde `strx` y `pattern ` son `String` pero el operador considera `pattern` como una expresión regular [[13]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/like-operator), ejemplos:
+
+{% raw %}
+```VBA
+MyCheck = "aBBBa" Like "a*a"    ' Returns True.
+MyCheck = "F" Like "[A-Z]"    ' Returns True.
+MyCheck = "F" Like "[!A-Z]"    ' Returns False.
+MyCheck = "a2a" Like "a#a"    ' Returns True.
+MyCheck = "aM5b" Like "a [L-P]#[!c-e]"    ' Returns True.
+MyCheck = "BAT123khg" Like "B?T*"    ' Returns True.
+MyCheck = "CAT123khg" Like "B?T*"    ' Returns False.
+MyCheck = "ab" Like "a*b"    ' Returns True.
+MyCheck = "a*b" Like "a [*]b"    ' Returns False.
+MyCheck = "axxxxxb" Like "a [*]b"    ' Returns False.
+MyCheck = "a [xyz" Like "a [[]*"    ' Returns True.
+MyCheck = "a [xyz" Like "a [*"    ' Throws Error 93 (invalid pattern string).
+```
+{% endraw %}
+
+### Operadores de concadenación
+Los operadores de concatenación para `String` en **VBA** son `&` y `+`, ambos operadores tienen la misma función y es por eso que se recomienda usar solamente `&` como operador de concatenación (para evitar ambigüedades) [[14]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/ampersand-operator), ejemplo:
+
+{% raw %}
+```VBA
+Dim s1,s2 As String
+s1 = "cade"
+s2 = "na"
+MsgBox s1 & s2
+MsgBox s1 + s2 'el resultado es el mismo pero no se recomienda usar esta forma
+```
+{% endraw %}
+
+### Operadores lógicos
+Los operadores lógicos en **VBA** son conjunción (`And`), equivalencia logica (`Eqv`), implicación (`Imp`), negación (`Not`), disyunción (`Or`) y disyunción exclusiva (`Xor`) [[15]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/operator-summary), por ejemplo:
+
+{% raw %}
+```VBA
+Dim A, B, C, MyCheck As Single
+A = 10: B = 8: C = 6
+MyCheck = A > B Imp B > C    ' Returns True.
+MyCheck = A > B Imp C > B    ' Returns False.
+MyCheck = B > A Imp C > B    ' Returns True.
+MyCheck = B > A Imp C > D    ' Returns True.
+
+MyCheck = A > B And B > C    ' Returns True.
+MyCheck = A > B And C > B    ' Returns False.
+
+MyCheck = A > B Or C > B    ' Returns True.
+
+MyCheck = A > B Eqv C > B    ' Returns False.
+MyCheck = B > A Eqv C > B    ' Returns True.
+MyCheck = A > B Eqv B > C    ' Returns True.
+
+MyCheck = A > B Xor C > B    ' Returns True.
+MyCheck = B > A Xor C > B    ' Returns False.
+
+MyCheck = Not A > B          ' Returns False.
+MyCheck = Not B > A          ' Returns False.
+```
+{% endraw %}
+
+### Precedencia de los operadores
+La precedencia se refiere al orden en el que se ejecutan los operadores en una expresión, el orden de ejecución de los operadores se muestra en la siguiente tabla (el primer operador se ejecuta primero, luego el segundo, ...) y si dos operadores tienen la misma precedencia se ejecuta primero el de más a la izquierda [[16]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/operator-precedence):
+
+<table>
+    <colgroup>
+        <col width="50%" />
+        <col width="50%" />
+        </colgroup>
+    <thead>
+        <tr>
+        <th>Tipo de operador</th>
+        <th>Operador</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td rowspan= "7" >Aritmeticos</td>
+        <td>^</td>
+        </tr>
+        <tr>
+        <td>- (Negación)</td>
+        </tr>
+        <tr>
+        <td>*, /</td>
+        </tr>
+        <tr>
+        <td>\</td>
+        </tr>
+        <tr>
+        <td>Mod</td>
+        </tr>
+        <tr>
+        <td>+, -</td>
+        </tr>
+        <tr>
+        <td>&amp;</td>
+        </tr>
+        <tr>
+        <td rowspan= "7" >Comparación</td>
+        <td>=</td>
+        </tr>
+        <tr>
+        <td>&lt;&gt;</td>
+        </tr>
+        <tr>
+        <td>&lt;</td>
+        </tr>
+        <tr>
+        <td>&gt;</td>
+        </tr>
+        <tr>
+        <td>&lt;=</td>
+        </tr>
+        <tr>
+        <td>&gt;=</td>
+        </tr>
+        <tr>
+        <td>Like, Is</td>
+        </tr>
+        <tr>
+        <td rowspan= "6" >Logicos</td>
+        <td>Not</td>
+        </tr>
+        <tr>
+        <td>And</td>
+        </tr>
+        <tr>
+        <td>Or</td>
+        </tr>
+        <tr>
+        <td>Xor</td>
+        </tr>
+        <tr>
+        <td>Eqv</td>
+        </tr>
+        <tr>
+        <td>Imp</td>
+        </tr>
+    </tbody>
+</table>
+
+Utilice parentesis `()` para hacer explicito cual es el orden de ejecución de los operadores, por ejemplo la expresión `Not a ^ 2 * b > a + b` es equivalente a `Not ( ( ( a ^2)*b ) > ( a + b ) )`
 
 ## Elementos de control
 
 ### Condicionales
-Los condicionales se utilizan principalmente cuando la ejecución de ciertas sentencias dependen de cierta condición que se debe cumplir, por ejemplo:
+Los *condicionales* se utilizan principalmente cuando la ejecución de un grupo de sentencias dependen de cierta condición que se debe cumplir [[17]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/ifthenelse-statement), por ejemplo:
 
 {% raw %}
 ```VBA
@@ -147,6 +302,7 @@ MsgBox message
 {% endraw %}
 
 ### Ciclo for
+El *ciclo for* se utiliza para ejecutar un grupo de sentencias una cantidad determinada de veces [[18]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/fornext-statement), por ejemplo :
 {% raw %}
 ```VBA
 Dim randomn As Double
@@ -162,7 +318,7 @@ MsgBox "random = " & CStr(random) & " count = " & CStr(count)
 {% endraw %}
 
 Una alternativa para el ciclo `For ... To ... Next` del ejemplo anterior es el
-ciclo `For Each ... In ... Next`, como lo muestra el siguiente ejemplo
+ciclo `For Each ... In ... Next`, la ventaja de este es que permite obtener uno a uno los elementos de un arreglo o una colección de datos [[19]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/for-eachnext-statement), como lo muestra el siguiente ejemplo
 
 {% raw %}
 ```VBA
@@ -172,5 +328,18 @@ For Each c In Range("A1:D10")
     c.Value = total
     total = total + 1
 Next c
+```
+{% endraw %}
+
+### Ciclo while
+El ciclo se utiliza cuando se requiere ejecutar varias veces un conjunto de sentencias hasta que una determinada expresión lógica al evaluarla su resultado sea `False` [[20]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/whilewend-statement), por ejemplo
+
+{% raw %}
+```VBA
+Dim x as Integer
+x = 2
+While x<100
+    x = x*x
+Wend
 ```
 {% endraw %}
