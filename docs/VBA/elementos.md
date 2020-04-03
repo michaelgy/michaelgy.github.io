@@ -302,7 +302,7 @@ MsgBox message
 {% endraw %}
 
 ### Ciclo for
-El *ciclo for* se utiliza para ejecutar un grupo de sentencias una cantidad determinada de veces [[18]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/fornext-statement), por ejemplo :
+El *ciclo for* se utiliza para ejecutar un grupo de sentencias una cantidad determinada de veces [[18]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/fornext-statement), por ejemplo:
 {% raw %}
 ```VBA
 Dim randomn As Double
@@ -318,7 +318,7 @@ MsgBox "random = " & CStr(random) & " count = " & CStr(count)
 {% endraw %}
 
 Una alternativa para el ciclo `For ... To ... Next` del ejemplo anterior es el
-ciclo `For Each ... In ... Next`, la ventaja de este es que permite obtener uno a uno los elementos de un arreglo o una colección de datos [[19]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/for-eachnext-statement), como lo muestra el siguiente ejemplo
+ciclo `For Each ... In ... Next`, la ventaja de este es que permite obtener uno a uno los elementos de un arreglo o una colección de datos [[19]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/for-eachnext-statement), como lo muestra el siguiente ejemplo:
 
 {% raw %}
 ```VBA
@@ -332,7 +332,7 @@ Next c
 {% endraw %}
 
 ### Ciclo while
-El ciclo se utiliza cuando se requiere ejecutar varias veces un conjunto de sentencias hasta que una determinada expresión lógica al evaluarla su resultado sea `False` [[20]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/whilewend-statement), por ejemplo
+El ciclo se utiliza cuando se requiere ejecutar varias veces un conjunto de sentencias hasta que una determinada expresión lógica al evaluarla su resultado sea `False` [[20]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/whilewend-statement), por ejemplo:
 
 {% raw %}
 ```VBA
@@ -341,5 +341,40 @@ x = 2
 While x<100
     x = x*x
 Wend
+```
+{% endraw %}
+
+## Procedimientos (Sub, Function)
+
+Los procedimientos son un conjunto de sentencias que se ejecutan como una unidad [[21]](https://docs.microsoft.com/en-us/office/vba/language/glossary/vbe-glossary#procedure), además no se puede declarar un procedimiento dentro de otro, pero un procedimiento si puede llamar a otro. Para ejecutar un procedimiento se puede utilizar la sentencia `Call` o se puede omitir esta y usar simplemente el nombre del procedimiento [[22]](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/call-statement).
+
+### Sub
+El procedimiento **Sub** no retorna ningun valor y se pueden declarar con cero o más parametros [[23]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/writing-a-sub-procedure), por ejemplo:
+
+{% raw %}
+```VBA
+Sub proc1(x As String)
+MsgBox "procedimiento 1 con parametro " & x
+End Sub
+
+Sub proc2()
+MsgBox "procedimiento 2"
+proc1 (":2")
+End Sub
+
+Sub proc3()
+MsgBox "procedimiento 3"
+'Otra forma de asignar valores a un parametro
+Call proc1(x:=":3")
+'Otra mas
+proc1 x:=":)" ' proc1 ":)"
+End Sub
+```
+{% endraw %}
+
+### Function
+
+{% raw %}
+```VBA
 ```
 {% endraw %}
