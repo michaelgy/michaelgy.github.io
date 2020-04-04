@@ -390,3 +390,7 @@ Function aleatorio() As Double
 End Function
 ```
 {% endraw %}
+
+## Clases y Objetos
+
+Las Clases en **VBA** permiten abstraer funciones y variables como parte de una misma entidad, esto además ayuda a organizar el codigo y hace más facil la programación de aplicaciones complejas. Los objetos en **VBA** son variables que pertecen a una clase, tienen las funciones y propiedades que la clase define, son estos los que permiten aprovechar la funcionalidad de clase. [[Tutorial]](https://excelmacromastery.com/vba-class-modules)
