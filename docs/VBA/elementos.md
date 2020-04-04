@@ -373,8 +373,20 @@ End Sub
 {% endraw %}
 
 ### Function
-
+El procedimiento **Function** a diferencia del **Sub** retorna un valor y se pueden declarar con cero o más parametros, el valor que retorna se debe asignar dentro de la función y la variable a la que se asigna tiene el mismo nombre que la función (note que la variable no puede ser declarada dentro de la función dado que es una variable especial que se debe asignar para que la función pueda retornar un valor) [[23]](https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/writing-a-function-procedure), por ejemplo:
 {% raw %}
 ```VBA
+
+' Grados fahrenheit a celsius
+Function Celsius(fDegrees) 
+ Celsius = (fDegrees - 32) * 5 / 9 
+End Function
+
+'Esta funcion retorna un numero aleatorio
+' de 0 a 1
+Function aleatorio() As Double
+    Randomize
+    aleatorio = Rnd
+End Function
 ```
 {% endraw %}
