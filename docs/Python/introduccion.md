@@ -34,7 +34,7 @@ peso = 5e3 #numero real en notación cientifica
 ```
 {% endraw %}
 
-## Tipos de datos básicos
+## Tipos de datos comunes
 Como se menciono en la sección anterior, las variables guardan información, pero esta información debe tener un tipo de dato especifico de forma que el interprete de **Python** pueda manipular de forma correcta la variable, es por esto que existen los tipos de datos en **Python**. Algunos de los tipos de datos incluidos por defecto en **Python** son:
 
 + **int** (enteros): es el tipo de datos por defecto para las variables que han sido asignadas con números sin punto decimal.
