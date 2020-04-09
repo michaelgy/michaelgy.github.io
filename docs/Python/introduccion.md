@@ -110,4 +110,4 @@ x = ["uno","dos","tres"]
 x.pop(0)
 dos = x[0]
 ```
-
+{% endraw %}
