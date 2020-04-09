@@ -102,7 +102,7 @@ cuatro = x[3]
 ```
 {% endraw %}
 
-para eliminar un elemento de una lista en una variable `var`, utilice la siguiente expresion `var.pop(i)` donde `i` es la posición del elemento que se va a eliminar, por ejemplo:
+para eliminar un elemento de una lista en una variable `var`, utilice la siguiente expresion `var.pop(m)` donde `m` es la posición del elemento que se va a eliminar, por ejemplo:
 
 {% raw %}
 ```python
