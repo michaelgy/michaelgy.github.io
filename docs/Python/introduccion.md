@@ -55,7 +55,7 @@ x = 3+4j #x es un número complejo
 ```python
 var1 = "hello"
 var2 = 'world'
-varm = "error' # para delimitar la cadena solo se debe utilizar un delimitador
+#varm = "error' # para delimitar la cadena solo se debe utilizar un delimitador
 varm = "'hello'" #valido
 varm = '"hello"' #valido
 ```
@@ -109,5 +109,131 @@ para eliminar un elemento de una lista en una variable `var`, utilice la siguien
 x = ["uno","dos","tres"]
 x.pop(0)
 dos = x[0]
+```
+{% endraw %}
+
+Para más información acerca de los tipos de datos disponibles en **Python** consulte [[5]](https://docs.python.org/3/reference/datamodel.html).
+
+## Expresiones
+Las expresiones en **Python** son todos aquellos fragmentos de codigo que al ser evualuados por el interprete dan como resultado un valor (de algún tipo de dato), por ejemplo al escribir la cadena `"abc"` en una linea de codigo, el interprete genera como resultado la cadena `"abc"` (despues de todo las lineas de código en un archivo de **Python** no son más que caracteres y toman importancia cuando el interprete las ejecuta), si `a` y `b` son variables númericas entonces al escribir la linea de codigo `a+b` el interprete realizara la suma generara un número como resultado, que en ejemplos anteriores han sido asignados a variables utilizando la sentencia de asignación [[6]](https://docs.python.org/3/glossary.html#term-expression). 
+
+## Sentencias
+Una sentencia en **Python** es un bloque (es decir que se extiende a una o más lineas) de codigo y realizan una acción, por ejemplo las expresiones en una linea son sentencias, la asignación de una variable es una sentencia [[7]](https://docs.python.org/3/glossary.html#term-statement), los condicionales son sentencias (que se extienden a más de una linea), etc.
+
+## Operadores
+Los operadores toman una o más expresiones y generan un dato manipulando los datos generados por las expresiones que reciben. La siguiente lista presenta los operadores disponibles en **Python** y la precedencia (orden de ejecución de los operadores) es descende (el primero se ejecuta primero, el segundo despues y asi sucesivamente) [[8]](https://docs.python.org/3/reference/expressions.html#operator-precedence): 
+
+<table>
+    <colgroup>
+        <col width="50%" />
+        <col width="50%" />
+        </colgroup>
+    <thead>
+        <tr>
+        <th>Operador</th>
+        <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>(expressions...),[expressions...], {key: value...}, {expressions...}</td>
+        <td>parentesis o tupla, lista, diccionario, conjunto</td>
+        </tr>
+        <tr>
+        <td>x[index], x[index:index], x(arguments...), x.attribute</td>
+        <td>indización, slicing, llamado de función, atributo</td>
+        </tr>
+        <tr>
+        <td>await x</td>
+        <td>expresión await</td>
+        </tr>
+        <tr>
+        <td>**</td>
+        <td>Exponenciación</td>
+        </tr>
+        <tr>
+        <td>+x, -x, ~x</td>
+        <td>Positivo, negativo, bitwise not</td>
+        </tr>
+        <tr>
+        <td>*, @, /, //, %</td>
+        <td>Multiplicación,  Mult. Matrix, división, divisón entera, modulo</td>
+        </tr>
+        <tr>
+        <td>+,-</td>
+        <td>suma resta</td>
+        </tr>
+        <tr>
+        <td><<, >></td>
+        <td>shift left, shift rigth</td>
+        </tr>
+        <tr>
+        <td>&</td>
+        <td>Bitwise  AND</td>
+        </tr>
+        <tr>
+        <td>^</td>
+        <td>Bitwise XOR</td>
+        </tr>
+        <tr>
+        <td>|</td>
+        <td>Bitwise OR</td>
+        </tr>
+        <tr>
+        <td>in, not in, is, is not, <, <=, >, >=, !=, ==</td>
+        <td>probar si es miembro y comparadores</td>
+        </tr>
+        <tr>
+        <td>not x</td>
+        <td>negación booleana</td>
+        </tr>
+        <tr>
+        <td>and</td>
+        <td>conjunción booleana</td>
+        </tr>
+        <tr>
+        <td>or</td>
+        <td>disyunción booleana</td>
+        </tr>
+        <tr>
+        <td>if - else</td>
+        <td>expressión condicional (en una linea)</td>
+        </tr>
+        <tr>
+        <td>lambda</td>
+        <td>expresión lambda</td>
+        </tr>
+        <tr>
+        <td>:=</td>
+        <td>expresión de asignación</td>
+        </tr>
+    </tbody>
+</table>
+
+## Estructuras de control del flujo del programa
+
+### Condicional
+la sintaxis de los condicionales es:
+
+{% raw %}
+```python
+if expresion_booleana:
+    primera_sentencia...
+    segunda_sentencia...
+    ...
+    ultima_sentencia..
+```
+{% endraw %}
+
+### ciclo while
+la sintaxis del ciclo while es:
+
+{% raw %}
+```python
+while expresion_booleana:
+    primera_sentencia...
+    segunda_sentencia...
+    ...
+    ultima_sentencia..
 ```
 {% endraw %}
