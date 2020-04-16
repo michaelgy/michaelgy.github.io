@@ -4,3 +4,4 @@ layout: default
 # Python
 ### Indice
 + [Introducción](./introduccion.md)
++ [Referencia rápida](./referencia_rapida.md)
