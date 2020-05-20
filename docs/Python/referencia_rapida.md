@@ -99,6 +99,8 @@ print(x.find("m")) #(find) recibe como parametro una cadena y retorna la posiciÃ
 #>>> 2
 print(x.find("x"))
 #>>> -1
+print(x.split("5")) #(split) retorna una lista de cadenas, separa la cadena por el valor dado como parametro
+#>>> ['4', '00']
 ```
 {% endraw %}
 
@@ -118,5 +120,4 @@ print(x)
 print(x.index('3')) #(index) retorna la posiciÃ³n del elemento dado, si no existe arroja un error
 #>>> 2
 ```
-
 {% endraw %}
