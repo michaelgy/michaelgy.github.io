@@ -1,7 +1,7 @@
 # Secuencias
 Las secuencias en **Python** se pueden pensar como contenedores de datos,
-entre las secuencias hay dos categorias las que son **mutables** y las que no
-(**inmutables**), las mutables son las que pueden ser modificadas (agregar,
+entre las secuencias hay dos categorias: las que son **mutables** y las que no
+(**inmutables**). Las mutables son las que pueden ser modificadas (agregar,
 actualizar o eliminar elementos) despues de creadas, las immutables no cuentan
 con esta propiedad. Todas las secuencias son **iterables**, esto quiere decir que
 mediante un ciclo se puede acceder a los elementos que contiene. Las siguientes
@@ -22,12 +22,13 @@ print(all(x)) #(all) retorna True si todos los valores son "Verdaderos", si no F
 ```
 {% endraw %}
 
+Puede referirse a el [modelo de datos](https://docs.python.org/3/reference/datamodel.html) de la documentación oficial de **Python** para más información sobre secuencias.
 
 ## Listas
 Las listas son un tipo de secuencia **mutable** en **Python** que permite almacenar 
 cualquier otro tipo de dato (enteros, cadenas, flotantes, listas, ...),
 cada elemento dentro de la lista tiene un indice asociado, con el indice
-se puede acceder al elemento tambien se puede reemplazar o actualizar 
+se puede acceder al elemento, tambien se puede reemplazar o actualizar 
 el elemento en esa posición, por ejemplo:
 {% raw %}
 ```python
@@ -36,17 +37,17 @@ print(x[2])
 #>>> 5
 ```
 {% endraw %}
-en el ejemplo `x` es una lista con 5 elementos, el elemento de más
+en el ejemplo `x` es una lista con 6 elementos, el elemento de más
 a la izquierda tiene indice 0 (este es el primer elemento) y el elemento de más a la derecha tiene
-indice 4 (este es el último elemento), en la siguiente imagen se pueden ver los elementos
-de la lista `x` con su correspondiente indice
+indice 5 (este es el último elemento). En la siguiente imagen se pueden ver los elementos
+de la lista `x` con su correspondiente indice:
 
 ![listas](./Secuencias/listas.JPG)
 
-para acceder a un elemento en la lista utilizamos su indice, en el ejemplo se accedio al
-tercer elemento de la lista (el que tiene indice 2) y se imprimio, la sintaxis para acceder
+para acceder a un elemento en la lista utilizamos su indice, en el ejemplo anterior se accedio al
+tercer elemento de la lista (el que tiene indice 2) y luego se imprimio. La sintaxis para acceder
 a un elemento es `lista[indice]` donde `lista` es el nombre de la variable o el literal
-de la lista que se va a utilizar e `indice` es el indice del elemento al cual se va a 
+de la lista que se va a utilizar e `indice` es el indice (un número entero) del elemento al cual se va a 
 acceder. En caso de que el indice sea mayor o igual a la cantidad de elementos que hay en la
 lista, **Python** arroja un error, por ejemplo:
 {% raw %}
@@ -58,8 +59,8 @@ print(x[5]) #Error
 
 El `indice` también puede ser negativo, en este caso es como si la lista comenzara desde
 el último elemento, entonces el indice del útlimo elemento es -1 y el del primer elemento
-(de la lista `x`) es -5, en la siguiente imagen se pueden ver los elementos
-de la lista `x` con su correspondiente indice negativo
+(de la lista `x`) es -5. En la siguiente imagen se pueden ver los elementos
+de la lista `x` con su correspondiente indice negativo:
 
 ![listas 2](./Secuencias/listas_2.JPG)
 
@@ -107,3 +108,6 @@ print(x,y)
 #>>> [100, 'A', 1, 2, 3j, 200] 5
 ```
 {% endraw %}
+
+## Strings (Cadenas)
+Los strings son secuencias que almacenan [caracterés](https://es.wikipedia.org/wiki/Car%C3%A1cter_(tipo_de_dato)), son un tipo de secuencia **inmutable** y al igual que las listas, cada caracter dentro de un string tiene un indice asociado 

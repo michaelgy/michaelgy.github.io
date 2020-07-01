@@ -12,3 +12,5 @@ description: useful information about different topics
 + [Python](./docs/Python/index.md)
 
 + [Visual Studio Code](./docs/VScode/index.md)
+
++ [C#](./docs/Csharp/index.md)
