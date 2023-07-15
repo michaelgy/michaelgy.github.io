@@ -1,9 +1,0 @@
-{% raw %}
-```VBA
-```
-{% endraw %}
-
-{% raw %}
-```python
-```
-{% endraw %}

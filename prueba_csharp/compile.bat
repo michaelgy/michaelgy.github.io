@@ -1,1 +1,0 @@
-csc /r:Microsoft.VisualBasic.dll /r:System.Collections.dll *.cs
