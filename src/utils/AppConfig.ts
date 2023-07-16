@@ -5,4 +5,5 @@ export const AppConfig = {
   author: 'michaelgy',
   locale_region: 'en-us',
   locale: 'en',
+  email: 'michael@mgy.one',
 };

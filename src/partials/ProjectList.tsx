@@ -16,6 +16,23 @@ const ProjectList = () => (
   >
     <div className="flex flex-col gap-6">
       <Project
+        name="Computer Science Pathway"
+        description="Repository to learn and train skills in the field of computer science."
+        link="https://github.com/michaelgy/computer-science"
+        img={{
+          src: '/assets/images/project-abstract.png',
+          alt: 'Project computer science',
+        }}
+        category={
+          <>
+            <Tags color={ColorTags.EMERALD}>Engineering</Tags>
+            <Tags color={ColorTags.YELLOW}>Algorithms</Tags>
+            <Tags color={ColorTags.SKY}>Automation</Tags>
+            <Tags color={ColorTags.STONE}>Systems</Tags>
+          </>
+        }
+      />
+      <Project
         name="Programming challenges"
         description="Repository of my solutions for competitive programming challenges."
         link="https://github.com/michaelgy/PROBLEMS_PROGRAMMING"

@@ -5,13 +5,15 @@ import {
   Section,
 } from 'astro-boilerplate-components';
 
+import { AppConfig } from '@/utils/AppConfig';
+
 const Hero = () => (
   <Section>
     <HeroAvatar
       title={
         <>
           Welcome to my website!👋 <br></br>
-          I'm <GradientText>michaelgy</GradientText>
+          I'm <GradientText>{AppConfig.author}</GradientText>
           <br></br>and I'm thrilled to have you here.
         </>
       }
@@ -24,9 +26,9 @@ const Hero = () => (
           Feel free to connect with me via email at{' '}
           <a
             className="text-cyan-400 hover:underline"
-            href="mailto: michael801898@gmail.com"
+            href={`mailto: ${AppConfig.email}`}
           >
-            michael801898@gmail.com
+            {AppConfig.email}
           </a>{' '}
           or through various social media platforms:
         </>
