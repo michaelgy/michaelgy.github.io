@@ -10,20 +10,25 @@ const Hero = () => (
     <HeroAvatar
       title={
         <>
-          Hi there, I'm <GradientText>Ixartz</GradientText> 👋
+          Welcome to my website!👋 <br></br>
+          I'm <GradientText>michaelgy</GradientText>
+          <br></br>and I'm thrilled to have you here.
         </>
       }
       description={
         <>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus{' '}
-          <a className="text-cyan-400 hover:underline" href="/">
-            malesuada
+          Explore my portfolio and discover captivating projects that showcase
+          my creativity and expertise. Dive into valuable content covering a
+          wide range of topics, offering inspiration and practical insights.
+          <br /> <br />
+          Feel free to connect with me via email at{' '}
+          <a
+            className="text-cyan-400 hover:underline"
+            href="mailto: michael801898@gmail.com"
+          >
+            michael801898@gmail.com
           </a>{' '}
-          nisi tellus, non imperdiet nisi tempor at. Lorem ipsum dolor sit amet,{' '}
-          <a className="text-cyan-400 hover:underline" href="/">
-            consectetur
-          </a>{' '}
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+          or through various social media platforms:
         </>
       }
       avatar={
@@ -36,28 +41,16 @@ const Hero = () => (
       }
       socialButtons={
         <>
-          <a href="/">
-            <HeroSocial
-              src="/assets/images/twitter-icon.png"
-              alt="Twitter icon"
-            />
-          </a>
-          <a href="/">
-            <HeroSocial
-              src="/assets/images/facebook-icon.png"
-              alt="Facebook icon"
-            />
-          </a>
-          <a href="/">
+          <a href="https://www.linkedin.com/in/michaelgy/" target="__blank">
             <HeroSocial
               src="/assets/images/linkedin-icon.png"
               alt="Linkedin icon"
             />
           </a>
-          <a href="/">
+          <a href="https://github.com/michaelgy" target="__blank">
             <HeroSocial
-              src="/assets/images/youtube-icon.png"
-              alt="Youtube icon"
+              src="/assets/images/github-icon.png"
+              alt="Github icon"
             />
           </a>
         </>
