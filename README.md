@@ -1,130 +1,71 @@
-# Astro Boilerplate with TypeScript and Tailwind CSS [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=Follow%20%40Ixartz)](https://twitter.com/ixartz)
+# ⚡️astro-bento-portfolio
 
-🚀 Astro Boilerplate is starter code for your blog or portfolio based on Astro
-with Tailwind CSS 3.0. ⚡️ Made with Astro, TypeScript, ESLint, Prettier,
-Tailwind CSS.
+## A personal portfolio website made using `Astro`.
 
-Clone this project and use it to create your own Astro blog. You can check the
-[Astro templates demo](https://creativedesignsguru.com/demo/astro-boilerplate/).
+![astro-bento-portfolio | Bento-like Personal Porfolio Template](public/preview.png)
+
+To view a demo example, **[click here](https://sparkly-speculoos-0c9197.netlify.app/)**
+
+or my portfolio **[click here](https://gianmarcocavallo.com)**
 
 ## Features
 
-A complete Blog feature:
+- Modern and Minimal bento-like, sleek UI Design
+- All in one page (almost)
+- Fully Responsive
+- Performances and SEO optimizations
+- Ready to be deployed on [Netlify](https://www.netlify.com/)
+- Blog
+- RSS support (your-domain/rss.xml)
+- Cool 3d globe
 
-- 🎈 Syntax Highlighting
-- 🤖 SEO friendly with sitemap.xml and robots.txt
-- ⚙️ RSS feed
-- 📖 Pagination
-- 🌈 Include a dark blog theme
-- ⬇️ Markdown
-- 📦 Image lazy loading
-- 💎 Responsive design
+## Tech Stack
 
-Developer experience first:
+- [Astro](https://astro.build)
+- [unocss](https://unocss.dev/)
+- [motion](https://motion.dev/)
+- [d3](https://d3js.org/)
 
-- 🔥 Astro
-- 🎨 Tailwind CSS with aspect ratio and typography plugin
-- 🎉 TypeScript
-- ✏️ ESLint compatible with .astro files
-- 🛠 Prettier compatible with .astro files
-- 🦊 Husky
-- 🚫 lint-staged
-- 🚨 Commitlint
-- 🔧 One-click deploy on Netlify (or, manual if you prefer)
+# Steps ▶️
 
-ESLint with:
-
-- Airbnb styled guide
-- TypeScript compatible
-- Astro compatible
-- Automatically remove unused imports
-- Import sorting
-- Tailwind CSS plugin
-
-### Philosophy
-
-- Minimal code
-- SEO-friendly
-- 🚀 Production-ready
-
-### Requirements
-
-- Node.js and npm
-
-#### Optional
-
-- [nvm](https://github.com/nvm-sh/nvm)
-- [volta](https://volta.sh/)
-
-While Astro-boilerplate should work with the latest Node version, it has been
-tested with the versions in .nvmrc & the bottom of package.json. At current
-writing, that's Node v16.15.1
-
-### Getting started
-
-Run the following command on your local environment:
-
-``` bash
-git clone --depth=1 https://github.com/ixartz/Astro-boilerplate
-cd my-project-name
-npm install
+```bash
+# Clone this repository
+$ git clone https://github.com/Ladvace/astro-bento-portfolio
 ```
 
-Then, you can run locally in development mode with live reload:
-
-``` bash
-npm run dev
+```bash
+# Go into the repository
+$ cd astro-bento-portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your favorite browser
-to see your project.
-
-### Deploy to production (manual)
-
-You can create an optimized production build with:
-
-```shell
-npm run build
+```bash
+# Install dependencies
+$ pnpm install
+or
+$ npm install
 ```
 
-Now, your blog is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
+```bash
+# Start the project in development
+$ pnpm run dev
+or
+$ npm run dev
+```
 
-### Deploy to Netlify
+# Be sure to replace the momoji and all the relative information, such as email, website and other info, if you don't your website is gonna point to my domain and to my info
 
-Clone this repository on own GitHub account and deploy to Netlify:
+## REMOVE THE umami analytics script tag (or replace it with your id) in `src/layouts/Layout.astro`
 
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ixartz/Astro-boilerplate)
+# Configuration
 
-## 🧞 Commands
+remember to replace the `site` and other properties with your data in `astro.config.mjs`
 
-All commands are run from the root of the project, from a terminal:
+# Deploy on Netlify 🚀
 
-| Command           | Action                                       |
-|:----------------  |:-------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3000`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
-| `npm run clean`   | Remove `./dist` folder                       |
-| `npm run lint`    | Run ESLint and report styling error          |
+Deploying your website on Netlify it's optional but I reccomand it in order to deploy it faster and easly.
 
-### Contributions
+You just need to fork this repo and linking it to your Netlify account.
 
-Everyone is welcome to contribute to this project.
-Feel free to open an issue if you have question or found a bug.
+or
 
-### Additional Checks
-
-This README.md was linted with
-[markdownlint](https://github.com/igorshubovych/markdownlint-cli)
-
-### License
-
-Licensed under the MIT License, Copyright © 2022
-
----
-
-Made with ♥ by [CreativeDesignsGuru](https://creativedesignsguru.com)
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=Follow%20%40Ixartz)](https://twitter.com/ixartz)
+[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Ladvace/astro-bento-portfolio)

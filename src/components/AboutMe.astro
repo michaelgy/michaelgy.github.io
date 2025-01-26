@@ -1,0 +1,34 @@
+---
+import Card from "./Card/index.astro";
+---
+
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-6" title="About me">
+    <div class="flex flex-col gap-2">
+        <div class="text-sm font-light">
+            <p>
+                Hi, I'm Michael, a electronic engineer and software developer
+                from Colombia.
+                <br />
+                My primary tools of choice includes:
+            </p>
+            <ul class="list-disc list-inside">
+                <li>Typescript</li>
+                <li>Vue</li>
+                <li>Google Cloud</li>
+            </ul>
+        </div>
+        <p class="text-sm font-light">
+            Beyond coding, I'm passionate about science, physics, new
+            technologies, AI and a healthy living. An unusual hobby of mine is
+            watching anime and <a
+                href="https://www.youtube.com/@kurzgesagt"
+                class="text-red-400">Kurzgesagt</a
+            > videos, I find them inspiring.
+        </p>
+        <p class="text-sm font-light">
+            While I have some preferred tools, I always choose the best one for
+            the job, even if it's not on my usual list. My goal is to find the
+            right solution for each project.
+        </p>
+    </div>
+</Card>

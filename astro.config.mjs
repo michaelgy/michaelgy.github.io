@@ -1,34 +1,37 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
-import robotsTxt from 'astro-robots-txt';
-import { astroImageTools } from 'astro-imagetools';
+import { defineConfig } from 'astro/config'
+import sitemap from '@astrojs/sitemap'
+import netlify from '@astrojs/netlify'
+import robotsTxt from 'astro-robots-txt'
+import UnoCSS from '@unocss/astro'
+import icon from 'astro-icon'
+
+import solidJs from '@astrojs/solid-js'
+import { remarkReadingTime } from './src/lib/remark-reading-time.mjs'
+
+import svelte from '@astrojs/svelte'
 
 // https://astro.build/config
 export default defineConfig({
-  // base: '.', // Set a path prefix.
-  site: 'https://michaelgy.github.io/', // Use to generate your sitemap and canonical URLs in your final build.
-  trailingSlash: 'always', // Use to always append '/' at end of url
-  // Important!
-  // Only official '@astrojs/*' integrations are currently supported by Astro.
-  // Add 'experimental.integrations: true' to make 'astro-robots-txt' working
-  // with 'astro build' command.
-  experimental: {
-    integrations: true,
-  },
-  markdown: {
-    shikiConfig: {
-      // Choose from Shiki's built-in themes (or add your own)
-      // https://github.com/shikijs/shiki/blob/main/docs/themes.md
-      theme: 'monokai',
+    site: 'https://mgy.one/',
+    integrations: [
+        sitemap(),
+        robotsTxt({
+            sitemap: [
+                'https://mgy.one/sitemap-index.xml',
+                'https://mgy.one/sitemap-0.xml',
+            ],
+        }),
+        solidJs(),
+        UnoCSS({ injectReset: true }),
+        icon(),
+        svelte(),
+    ],
+    markdown: {
+        remarkPlugins: [remarkReadingTime],
     },
-  },
-  integrations: [
-    react(),
-    tailwind({}),
-    sitemap(),
-    robotsTxt(),
-    astroImageTools,
-  ],
-});
+    output: 'server',
+    adapter: netlify({ edgeMiddleware: true }),
+    vite: {
+        assetsInclude: '**/*.riv',
+    },
+})
